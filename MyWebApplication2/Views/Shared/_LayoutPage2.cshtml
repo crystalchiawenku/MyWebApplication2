@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title="自訂的「版面配置頁」- 包含 Header與 Footer兩個區段";
+
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <header>
+        @if (IsSectionDefined("header"))
+        {
+            @RenderSection("header");
+        }
+        else
+        {
+            @: Sorry! 未設定<font color="red">&lt;header&gt;</font>區段
+        }
+
+
+    </header>
+
+    <div>
+        @*子頁面內容會呈現在此*@
+
+        @RenderBody()
+    </div>
+    <footer>
+        @if (IsSectionDefined("footer"))
+        {
+            @RenderSection("footer");
+        }
+        else
+        {
+            @: Sorry! 未設定<font color="red">&lt;footer&gt;</font>區段
+        }
+
+    </footer>
+
+</body>
+</html>
