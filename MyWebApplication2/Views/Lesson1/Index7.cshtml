@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+
+    string str = "<a href=https://www.google.com.tw/>這是Google官網</a>";
+
+    string str1 = "<a href=google.com.tw>不是google官網~變成本網站底下的路徑</a>";
+
+    //寫檔案路徑:
+    string str2 = @"C:\temp\";
+
+    string str3 = "C:\\temp\\";
+
+    string str4 = @"這裡有一個""符號";
+
+    string str5 = "這裡有一個\"符號";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index7-HtmlHelper</title>
+</head>
+<body>
+    <div>
+        為避免XSS(跨網頁腳本攻擊)Razor輸出的文字都(尤其HTML Tag)都會經過HTML編碼(執行瀏覽器後檢視原始碼)
+        <br /><br />
+
+        @str   <br /><br />
+        @str1   <br /><br />
+
+        @str2   <br />
+        @str3   <br /><br />
+
+        @str4   <br />
+        @str5   <br />
+
+        Html.Raw()方法:不經HTML編碼、會印出HTML tag：<br />
+        @Html.Raw(str);<br /><br />
+        @Html.Raw(str2);  錯誤版(沒有加上http://)<br /><br />
+
+        MvcHtmlString.Create()方法: 另一個不經HTML編碼 印出HTML tag方法<br />
+        @MvcHtmlString.Create(str);<br /><br />
+        @MvcHtmlString.Create(str2);   錯誤版(沒有加上http://)<br /><br />
+
+        <br /><br />
+        印出JavaScript文字:
+              <script>
+                  window.alert("會經過HTML編碼 @str");
+                  window.alert("不會編碼:用Ajax.JavaScriptStringEncode @Ajax.JavaScriptStringEncode(str)");
+                  window.confirm("是否確定?");
+              </script>
+
+
+
+
+    </div>
+</body>
+</html>

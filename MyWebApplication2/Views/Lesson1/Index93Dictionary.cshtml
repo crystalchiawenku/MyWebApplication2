@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{ 
+    var myScores = new Dictionary<string, int>();
+    myScores.Add("One", 98);
+    myScores.Add("Two", 50);
+    myScores.Add("Three", 30);
+    myScores.Add("Four", 70);
+    myScores.Add("Five", 65);
+    myScores.Add("Six", 88);
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index93Dictionary - 資料字典 (Dictionary)</title>
+</head>
+<body>
+    <div>
+        <p>列出資料字典 (Dictionary)裡面所有的數值</p> 
+        @{ 
+            foreach (var score in myScores)
+            {
+                @score
+                @: ，
+            }
+
+        }<hr />
+
+        <p>第二個的分數 myScores["Two"] -- @myScores["Two"]</p>
+        @{
+
+             myScores["Six"] = 75;
+
+        }<hr />
+
+        <p>重新設定 第六個的分數 myScores["Six"] -- @myScores["Six"]</p><hr />
+
+        <br /><br />
+        <p>列出資料字典 (Dictionary)裡面所有的 Key</p>
+        @{
+            foreach (var item in myScores)
+            {
+                @item.Key
+                @:、 @*用、隔開*@
+            }
+        }
+
+        <!--另一種寫法
+        @*
+        @{
+            foreach (var item in myScores.Keys)
+            {
+                @item
+                @:、  @*用、隔開*@
+            }
+        }
+            -->
+
+    
+
+    </div>
+</body>
+</html>

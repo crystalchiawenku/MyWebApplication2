@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+
+    string result = "";
+    if (!IsPost)
+    {
+        //第一次執行
+        result = "第一次執行網頁，IsPost屬性=false";
+
+    }
+    else
+    {
+        //PostBack(回傳)
+        result = "按下Submit按鈕送出造成PostBack(Web Form用語) IsPost屬性=true";
+
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index90IsPost - 類似Web Form的Page.IsPostBack</title>
+</head>
+<body>
+    <div>
+        每次只能按一個按鈕，只按一次。<br />若完成想測試其它按鈕請重新執行本網頁，請勿按F5<br /><br /><br />
+
+        傳統HTML表單: <br />
+        <form method="post" action="">
+            <input type="submit" name="Submit" value="Submit送出" /> <br /> <br />
+            <button name="Button1">&lt;form&gt;表單內的按鈕</button> <br /> <br />
+        </form>
+
+        <br /> <hr /><br />
+        <button name="Button2">表單「外面」的一般按鈕，「不會」觸發 PostBack</button><br /><br /><br />
+
+
+
+        <h3>@result</h3>
+
+    </div>
+</body>
+</html>

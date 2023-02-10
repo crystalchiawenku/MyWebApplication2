@@ -172,6 +172,16 @@
     <Content Include="Views\Lesson1\Index3.cshtml" />
     <Content Include="Views\Lesson1\Index3A.cshtml" />
     <Content Include="Views\Lesson1\Index4.cshtml" />
+    <Content Include="Views\Lesson1\Index4B.cshtml" />
+    <Content Include="Views\Lesson1\Index5.cshtml" />
+    <Content Include="Views\Lesson1\Index6.cshtml" />
+    <Content Include="Views\Lesson1\Index7.cshtml" />
+    <Content Include="Views\Lesson1\Index7for.cshtml" />
+    <Content Include="Views\Lesson1\Index7Request.cshtml" />
+    <Content Include="Views\Lesson1\Index90IsPost.cshtml" />
+    <Content Include="Views\Lesson1\Index91Add.cshtml" />
+    <Content Include="Views\Lesson1\Index92Array.cshtml" />
+    <Content Include="Views\Lesson1\Index93Dictionary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index92Array - Array練習</title>
+</head>
+<body>
+    <div>
+        <h3>陣列內容</h3>
+        @{
+            string[] myArray = { "Mary", "彼得兔", "史恩", "梅東西", "鄧不利多", "馬份" };
+
+            foreach (var person in myArray)
+            {
+                @person
+                @: ， @*表示用，隔開每個元素*@
+
+            }
+         }
+
+            <br /><br />
+            <h3>常見用法：</h3> <hr />
+            <p> 陣列長度: 有 @myArray.Length 個元素</p>
+            <p>史恩在陣列中的位置(從零算起): @Array.IndexOf(myArray, "史恩")</p>
+            <p>有東西在陣列中的位置(找不則傳回-1): @Array.IndexOf(myArray, "有東西")</p>
+            <p>Index數字3（從零算起，所以是第四個）是誰：@myArray[3]</p>
+
+            <h3>反陣列Array.Reverse()</h3> <hr />
+            @{
+                Array.Reverse(myArray);
+
+                foreach (var reverseperson in myArray)
+                {
+                    <p> @reverseperson </p>
+                }
+            }     
+        
+
+    </div>
+</body>
+</html>

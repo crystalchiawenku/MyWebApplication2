@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index7for迴圈練習</title>
+</head>
+<body>
+    <div>
+        <h3>for 迴圈練習1:印出字體大小</h3>
+        <hr /><br />
+        @for (int i = 8; i < 20; i++)
+        {
+            <font style="font-size: @(i + "pt")">字體大小 font-size @i pt </font> <br />
+        }
+
+
+
+        <h3>foreach 練習2:Request.ServerVariables</h3>
+        <hr /><br />
+        @foreach (var item in Request.ServerVariables)
+        {
+            <ul>
+                <li>@item</li>
+            </ul>
+        }
+    </div>
+</body>
+</html>

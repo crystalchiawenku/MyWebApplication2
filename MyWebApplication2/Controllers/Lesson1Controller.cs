@@ -100,46 +100,104 @@ namespace MyWebApplication2.Controllers
             return View();
         }
 
-        //-- 搭配第一個類別檔 (~/Models/Class1.cs) 當作Model，但沒有連結資料庫。
-        // 產生檢視（View）的時候，不使用任何「版面配置頁」
-        // 請使用「Details」範本。只傳遞「一筆」數據而已。
+        //搭配第一個類別檔 (~/Models/Class1.cs) 當作Model，但沒有連結資料庫。
+        // 新增View不使用版面配置，範本用Details。只傳遞「一筆」數據而已。
 
         public ActionResult Index4()
         {
             //寫法一
-            //Models.Class1=new Models.Class1();
-            //var username = new Models.Class1();
-            //username.UserName = "我躲在Class1類別 的 UserName 屬性。";
+            //如果有using Models就只要Class1即可
+            //Models.Class1 username = new Models.Class1();
+            //username.UserName = "我是Model的Property屬性";
+            var username = new Models.Class1();
+            username.UserName = "我是躲在Class1類別 的 UserName 屬性。";
 
-            //VS會建議寫法一如下
+            //VS會建議如下
             //var username = new Models.Class1
             //{
             //    UserName = "我是躲在類別檔的屬性!"
             //};
-            //return View(username);
 
-            //寫法二(新寫法)
-            //var name = new Models.Class1 { UserName = "我是躲在類別檔的屬性!" };
 
-            //寫法三
-            Models.Class1 name = new Models.Class1 { UserName = "我是躲在類別檔的屬性!" };
+            //寫法三(新寫法)
+            //var username = new Models.Class1 { UserName = "我是躲在類別檔的屬性!3" };
 
-            return View(name);
+            //寫法四(跟寫法三類似很像)
+            //Models.Class1 username = new Models.Class1 { UserName = "我是躲在類別檔的屬性!4" };
+
+            return View(username);
         }
 
+        // 新增View不使用版面配置，用List範本+Model
+        public ActionResult Index5()
+        {
+            //寫法一            
+            List<Models.Class1> userList = new List<Models.Class1>();
+            userList.Add(new Models.Class1 { UserName = "我是(1)" });
+            userList.Add(new Models.Class1 { UserName = "我是(2)" });
+            userList.Add(new Models.Class1 { UserName = "我是(3)" });
 
+            ////寫法二 (小括號轉大括號)
+            //List<Models.Class1> userList = new List<Models.Class1>
+            //{
 
+            //    new Models.Class1 { UserName = "我是2-1"},
+            //    new Models.Class1 { UserName = "我是2-2"},
+            //    new Models.Class1 { UserName = "我是2-3"},
+            //};
 
+            return View(userList);
+        }
 
+        //以下僅練習View的Razor, Controller不需寫
+        //新增View不使用版面配置，範本選Empty(沒有模型)
+        public ActionResult Index6()
+        {
+            return View();
+        }
 
+        //新增View不使用版面配置，範本選Empty(沒有模型)
+        public ActionResult Index7()
+        {
+            return View();
+        }
 
+        //新增View不使用版面配置(練習for迴圈)
+        public ActionResult Index7for()
+        {
+            return View();
+        }
 
+        //新增View不使用版面配置(練習Request)
+        public ActionResult Index7Request()
+        {
+            return View();
+        }
 
+        //以下View 練習 HTML<Form>表單搭配 Razor
+        //新增View不使用版面配置(練習IsPostBack)
+        public ActionResult Index90IsPost()
+        {
+            return View();
+        }
 
+        //新增View(練習HTML表單)
+        public ActionResult Index91Add()
+        {   
+            return View();
+        }
 
+        //View + Array
+        public ActionResult Index92Array()
+        {   
+            return View();
+        }
 
-
-     
+        //View + Dictionary
+        public ActionResult Index93Dictionary()
+        {  
+            return View();
+        }
 
 
     }

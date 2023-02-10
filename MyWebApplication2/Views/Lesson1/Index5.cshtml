@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MyWebApplication2.Models.Class1>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inde5搭配類別檔</title>
+</head>
+<body>
+    @*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @*Display Model內Class property's name*@
+                @*model可以簡化為m*@
+
+                @*@Html.DisplayNameFor(model => model.UserName)*@
+                @Html.DisplayNameFor(m => m.UserName)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @*Display For Model內Class property's value*@
+                @*item不建議改，若要改為自訂的則foreach跟這裡大小寫item都要改為相同*@
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

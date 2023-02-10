@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{
+    string DT = DateTime.Now.ToShortDateString();
+
+    string str = "今天的日期：" + DT + "(使用字串相連)";
+
+    Response.Write("使用Response.Write印出變數(先印出): " + "<font color = 'blue'>" + str + "</font>" + "<br />");
+
+    @: 使用Razor語法印出變數(先印出): <font color = "blue" > @str </font >
+    <br />
+    //@:另一種寫法(先<font color="red">DateTime結尾不加分號: @DateTime.Now.ToShortDateString()</font>)
+    <br />
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index6-簡易Razor寫法</title>
+</head>
+<script type="text/javascript">
+    alert('Hello World!');
+</script>
+
+<body>
+    <div>
+        <h3>Razor語法簡易入門</h3>
+
+        1.今天的日期: @DT <br /> <br />
+
+        2. 印出＠符號(兩個半型<text>@@</text>): @@<br /> <br />
+
+        3.印出email: 123@@abc.com.tw<br /> <br />
+
+        4.IsReadOnly() :
+        @if (ViewData.IsReadOnly)
+        {
+            Response.Write("Response.Write()印出：唯讀 - ReadOnly <br />");
+            @: 唯讀<br />
+        }
+        else
+        {
+            Response.Write("不是唯讀 <br />");
+            @: 不是唯讀<br />
+        }
+
+        5. IsReadOnly縮寫:@@(ViewData.IsReadOnly? xxx: xxx) @(ViewData.IsReadOnly ? "唯讀" : "不是唯讀")<br /> <br />
+
+        6. IsInt() (是否能轉整數): @@("10000".IsInt()) 例如: @("10000".IsInt()) <br /> <br />
+
+        7. AsInt()轉成整數: 例如: @@("10000".AsInt())  &nbsp;  @("10000".AsInt()) <br /> <br />
+
+        8. 用Convert.ToInt32: &nbsp; @(Convert.ToInt32("10000")) <br /> <br />
+
+        9. 超連結(@@Href 或 Html.ActionLink()): @Href("~/Lesson1/Index")<br /> <br />
+
+        10. 超連結(沒有根目錄/顯示執行URL的專案詳細路徑): @Href("Index")<br /> <br />
+
+
+
+    </div>
+
+
+
+
+</body>
+</html>

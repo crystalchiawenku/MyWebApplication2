@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+
+    var result = "";
+    var num = 10;
+
+    if (!IsPost)
+    {
+
+        result = "網頁第一次執行";
+    }
+    else
+    {
+        
+        result = "按下Submit送出後";
+
+        if (Request["TextBox1"].IsInt())
+        {
+            num = Request["TextBox1"].AsInt();
+            num = (num * 10);
+            @: 答案是: <font color="red">@num</font><br /><br />
+            @: 加上貨幣格式: <font color="red"> @String.Format("一共是{0:C}元", @num) </font><br /><br />
+        }
+        else
+        {
+            result = "Sorry~您輸入的" + Request["TextBox1"].ToString() + "只能輸入整數";
+        }
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index91Add-練習傳統HTML表單、String.Format方法</title>
+</head>
+<body>
+    <div> 
+
+        <form action="" method="post">
+            請輸入1~20(整數): 
+            <input type="text" name="TextBox1" value="10" required /><br /><br />
+            <input type="Submit" name="Submit" value="送出" />
+            @*<button type="Submit" name="Submit">button送出</button><br /><br />*@
+
+        </form><br /><br />
+
+        <h3>@result</h3>
+
+    </div>
+</body>
+</html>
